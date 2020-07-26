@@ -1,0 +1,11 @@
+
+.item{
+    /* padding: 50px;
+    max-width: 500px; */
+    display: inline-flex;
+    flex-direction: column;
+}
+
+/* .item-display{
+
+} */
