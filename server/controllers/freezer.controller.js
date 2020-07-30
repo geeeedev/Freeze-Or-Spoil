@@ -42,7 +42,8 @@ module.exports = {
       });
   },
   delete(req, res) {
-    Freezer.findOneAndDelete(req.params.id)
+    // Freezer.findOneAndDelete(req.params.id)    //Watch out for typo from syntax autofill: findOneAndDelete always delete the FIRST item in DB ignoring _id param passed
+    Freezer.findByIdAndDelete(req.params.id)
       .then((deletedItem) => {
         res.json(deletedItem);
       })

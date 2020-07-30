@@ -48,11 +48,11 @@ const ItemNew = (props) => {
       });
   };
 
-  // const classes = useStyles();
+  // const classes = useStyles(); 
 
   return (
     // <>
-    <Paper style={{ height: "50vh" }}>
+    <Paper style={{ height: "30vh" }}>
       <form onSubmit={handleSubmit} className="item">
         <MuiPickersUtilsProvider utils={MomentUtils}>
           {/* <TextField
