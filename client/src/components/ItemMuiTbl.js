@@ -5,8 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Icon, Paper, Link } from "@material-ui/core";
 import { Link as RouterLink } from "@reach/router";
 import MaterialTable from "material-table";
+import { green, purple, red, blue, blueGrey } from "@material-ui/core/colors";
 
-const ItemList = (props) => {
+
+
+const ItemMuiTbl = (props) => {
   const [allItems, setAllItems] = useState(null);
 
   //Initial API Data Read/Load
@@ -71,7 +74,7 @@ const ItemList = (props) => {
   };
 
   const columns = [
-    { title: "#", field: "_id" },
+    { title: "#", field: "_id", export: false, },
     { title: "Category", field: "category" },
     { title: "What", field: "item" },
     { title: "Qty", field: "qty" },
@@ -87,8 +90,8 @@ const ItemList = (props) => {
 
   return (
     <>
-      {/* <Paper style={{ height: "100vh", maxWidth: '80%' }}> */}
-      <Paper style={{ height: "100vh" }}>
+      <Paper style={{ height: "100vh", maxWidth: '80%', margin: "auto" }}>
+      {/* <Paper style={{ height: "100vh" }}> */}
         <Link component={RouterLink} to="/main">
           Back to Main
         </Link>{" "}
@@ -148,7 +151,17 @@ const ItemList = (props) => {
               }),
           }}
           options={{
-            exportButton:true
+            exportButton:true,
+            grouping: false,
+            headerStyle: {
+              color: "#ffb74d"
+            },
+            cellStyle: {
+              color: "#ffb74d"
+            },
+            rowStyle: {
+              color: "#ffb74d"
+            }
           }}
           // actions={[
           //   {
@@ -200,4 +213,4 @@ const ItemList = (props) => {
     </>
   );
 };
-export default ItemList;
+export default ItemMuiTbl;

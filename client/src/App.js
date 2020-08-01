@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Redirect, Router, Link, Navigate } from "@reach/router";
-import logo from "./logo.svg";
 import "./App.css";
-// import { ItemNew } from "./components/ItemNew" //use with export const
-import ItemNew from "./components/ItemNew"; //use with export default
-import ItemList from "./components/ItemList";
+import ItemMuiTbl from "./components/ItemMuiTbl";
 import Main from "./components/Main";
+import ItemNew from "./components/ItemNew";       //use with export default
+// import { ItemNew } from "./components/ItemNew" //use with export const
+// import ItemEdit from "./components/ItemEdit";  //edit
+// import ItemList from "./components/ItemList";  //List All + Delete
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { yellow } from "@material-ui/core/colors";
+import { MuiThemeProvider } from "material-table";
 
 function App() {
   const darkTheme = createMuiTheme({
@@ -29,7 +30,9 @@ function App() {
           <Redirect from="/" to="/main" noThrow="true" />
           <Main path="/main" dkMode={darkMode} setDkMode={setDarkMode} />
           <ItemNew path="/freezer/new" />
-          <ItemList path="/freezer" />
+          {/* <ItemEdit path="/freezer/edit" /> */}
+          {/* <ItemList path="/freezer" />  */}
+          <ItemMuiTbl path="/freezerMuiTbl" />
         </Router>
       </ThemeProvider>
     </div>

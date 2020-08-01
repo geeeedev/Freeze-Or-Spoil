@@ -52,7 +52,7 @@ const ItemNew = (props) => {
 
   return (
     // <>
-    <Paper style={{ height: "30vh" }}>
+    <Paper style={{ height: "40vh", maxWidth: '80%', margin: "auto" }}>
       <form onSubmit={handleSubmit} className="item">
         <MuiPickersUtilsProvider utils={MomentUtils}>
           {/* <TextField
