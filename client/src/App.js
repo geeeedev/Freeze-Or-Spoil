@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Redirect, Router, Link, Navigate } from "@reach/router";
+import { Redirect, Router, Link, navigate } from "@reach/router";
 import "./App.css";
+// import { ItemNew } from "./components/ItemNew" //use with export const
+import ItemNew from "./components/ItemNew";       //use with export default
+import ItemEdit from "./components/ItemEdit";  //edit
+import ItemList from "./components/ItemList";  //List All + Delete
 import ItemMuiTbl from "./components/ItemMuiTbl";
 import Main from "./components/Main";
-import ItemNew from "./components/ItemNew";       //use with export default
-// import { ItemNew } from "./components/ItemNew" //use with export const
-// import ItemEdit from "./components/ItemEdit";  //edit
-// import ItemList from "./components/ItemList";  //List All + Delete
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "material-table";
+import { Paper } from "@material-ui/core";
 
 function App() {
   const darkTheme = createMuiTheme({
@@ -26,14 +27,16 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <Paper square style={{ height: "150vh", maxWidth: '100%', margin: "auto", padding: "15px"}}>
         <Router>
           <Redirect from="/" to="/main" noThrow="true" />
           <Main path="/main" dkMode={darkMode} setDkMode={setDarkMode} />
           <ItemNew path="/freezer/new" />
-          {/* <ItemEdit path="/freezer/edit" /> */}
-          {/* <ItemList path="/freezer" />  */}
-          <ItemMuiTbl path="/freezerMuiTbl" />
+          <ItemEdit path="/freezer/:id/edit" />
+          <ItemList path="/freezer" /> 
+          <ItemMuiTbl path="/freezer/muiTbl" />
         </Router>
+        </Paper>
       </ThemeProvider>
     </div>
   );

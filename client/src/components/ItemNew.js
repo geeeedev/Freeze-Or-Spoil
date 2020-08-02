@@ -3,13 +3,30 @@ import axios from "axios";
 import { navigate } from "@reach/router";
 import "../styles.css";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, TextField, Button } from "@material-ui/core";
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
+import {
+  Typography,
+  Paper,
+  TextField,
+  Button,
+  FormHelperText,
+  FormControl,
+} from "@material-ui/core";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 import MomentUtils from "@date-io/moment";
+import HeaderDate from "./HeaderDate";
+import { red } from "@material-ui/core/colors";
 
-// const useStyles = makeStyles(() => ({}));
+const useStyles = makeStyles({
+  errorText: {
+    color: red,
+  },
+});
 
-// export const ItemNew = () => {
+
+
 const ItemNew = (props) => {
   const [category, setCategory] = useState("");
   const [item, setItem] = useState("");
@@ -30,9 +47,10 @@ const ItemNew = (props) => {
       item: item,
       qty,
       in_date: inDate, //model/db name must match!
-      out_date: outDate? outDate: "",
+      out_date: outDate ? outDate : "",
       comment,
     };
+
 
     //api to create item obj in db
     axios
@@ -48,173 +66,148 @@ const ItemNew = (props) => {
       });
   };
 
-  // const classes = useStyles(); 
+  
+  const muiStyles = useStyles();
 
   return (
-    // <>
-    <Paper style={{ height: "40vh", maxWidth: '80%', margin: "auto" }}>
+    <>
+      <HeaderDate />
       <form onSubmit={handleSubmit} className="item">
         <MuiPickersUtilsProvider utils={MomentUtils}>
-          {/* <TextField
-              type="text"
-              label="Category"
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-            /> */}
-          {errors.category ? (
-            <TextField
-              error
-              type="text"
-              label="Category"
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-            />
-          ) : (
-            <TextField
-              type="text"
-              label="Category"
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-            />
-          )}
-          <div>
+          <FormControl error={muiStyles.errorText}>
             {errors.category ? (
-              <span className="text-danger">
-                {errors.category.properties.message}
-              </span>
+              <TextField
+                error
+                type="text"
+                label="Category"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              />
             ) : (
-              ""
+              <TextField
+                type="text"
+                label="Category"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              />
             )}
-          </div>
+            <div>
+              {errors.category ? (
+                // <span className="text-danger">
+                <FormHelperText>
+                  {errors.category.properties.message}
+                </FormHelperText>
+              ) : (
+                ""
+              )}
+            </div>
+          </FormControl>
 
-          {/* <TextField
-            type="text"
-            label="What"
-            onChange={(e) => {
-              setItem(e.target.value);
-            }}
-          /> */}
-          {errors.item ? (
-            <TextField
-              error
-              type="text"
-              label="What"
-              onChange={(e) => {
-                setItem(e.target.value);
-              }}
-            />
-          ) : (
-            <TextField
-              type="text"
-              label="What"
-              onChange={(e) => {
-                setItem(e.target.value);
-              }}
-            />
-          )}
-          <div>
+          <FormControl error={muiStyles.errorText}>
             {errors.item ? (
-              <span className="text-danger">
-                {errors.item.properties.message}
-              </span>
+              <TextField
+                error
+                type="text"
+                label="What"
+                onChange={(e) => {
+                  setItem(e.target.value);
+                }}
+              />
             ) : (
-              ""
+              <TextField
+                type="text"
+                label="What"
+                onChange={(e) => {
+                  setItem(e.target.value);
+                }}
+              />
             )}
-          </div>
+            <div>
+              {errors.item ? (
+                <FormHelperText>
+                  {errors.item.properties.message}
+                </FormHelperText>
+              ) : (
+                ""
+              )}
+            </div>
+          </FormControl>
 
-          {/* <TextField
-            type="text"
-            label="Quantity"
-            onChange={(e) => {
-              setQty(e.target.value);
-            }}
-          /> */}
-          {errors.qty ? (
-            <TextField
-              error
-              type="text"
-              label="Quantity"
-              onChange={(e) => {
-                setQty(e.target.value);
-              }}
-            />
-          ) : (
-            <TextField
-              type="text"
-              label="Quantity"
-              onChange={(e) => {
-                setQty(e.target.value);
-              }}
-            />
-          )}
-          <div>
+          <FormControl error={muiStyles.errorText}>
             {errors.qty ? (
-              <span className="text-danger">
-                {errors.qty.properties.message}
-              </span>
+              <TextField
+                error
+                type="text"
+                label="Quantity"
+                onChange={(e) => {
+                  setQty(e.target.value);
+                }}
+              />
             ) : (
-              ""
+              <TextField
+                type="text"
+                label="Quantity"
+                onChange={(e) => {
+                  setQty(e.target.value);
+                }}
+              />
             )}
-          </div>
+            <div>
+              {errors.qty ? (
+                <FormHelperText>
+                  {errors.qty.properties.message}
+                </FormHelperText>
+              ) : (
+                ""
+              )}
+            </div>
+          </FormControl>
 
-          {/* <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="MM/DD/YYYY"
-            disableFuture
-            // maxDate={new Date()}
-            value={inDate}
-            margin="dense"
-            label="In Date"
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
-            onChange={(date) => setInDate(date)}
-          /> */}
-          {errors.in_date ? (
-            <KeyboardDatePicker
-            error
-            disableToolbar
-            variant="inline"
-            format="MM/DD/YYYY"
-            disableFuture
-            // maxDate={new Date()}
-            value={inDate}
-            margin="dense"
-            label="In Date"
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
-            onChange={(date) => setInDate(date)}
-          />
-          ) : (
-            <KeyboardDatePicker
-            disableToolbar
-            variant="inline"
-            format="MM/DD/YYYY"
-            disableFuture
-            // maxDate={new Date()}
-            value={inDate}
-            margin="dense"
-            label="In Date"
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
-            onChange={(date) => setInDate(date)}
-          />
-          )}
-          <div>
+          <FormControl error={muiStyles.errorText}>
             {errors.in_date ? (
-              <span className="text-danger">
-                {errors.in_date.properties.message}
-              </span>
+              <KeyboardDatePicker
+                error
+                disableToolbar
+                variant="inline"
+                format="MM/DD/YYYY"
+                disableFuture
+                // maxDate={new Date()}
+                value={inDate}
+                margin="dense"
+                label="In Date"
+                // InputLabelProps={{
+                //   shrink: true,
+                // }}
+                onChange={(date) => setInDate(date)}
+              />
             ) : (
-              ""
+              <KeyboardDatePicker
+                disableToolbar
+                variant="inline"
+                format="MM/DD/YYYY"
+                disableFuture
+                // maxDate={new Date()}
+                value={inDate}
+                margin="dense"
+                label="In Date"
+                // InputLabelProps={{
+                //   shrink: true,
+                // }}
+                onChange={(date) => setInDate(date)}
+              />
             )}
-          </div>
+            <div>
+              {errors.in_date ? (
+                <FormHelperText>
+                  {errors.in_date.properties.message}
+                </FormHelperText>
+              ) : (
+                ""
+              )}
+            </div>
+          </FormControl>
 
           <KeyboardDatePicker
             disableToolbar
@@ -225,9 +218,6 @@ const ItemNew = (props) => {
             value={outDate}
             margin="dense"
             label="Out Date"
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
             onChange={(date) => {
               setOutDate(date);
             }}
@@ -247,8 +237,7 @@ const ItemNew = (props) => {
           </Button>
         </MuiPickersUtilsProvider>
       </form>
-    </Paper>
-    // </>
+    </>
   );
 };
 export default ItemNew;
