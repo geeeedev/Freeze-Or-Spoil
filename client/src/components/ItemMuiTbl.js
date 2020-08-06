@@ -7,6 +7,7 @@ import HeaderDate from "./HeaderDate";
 import MaterialTable from "material-table";
 import { green, purple, red, blue, blueGrey } from "@material-ui/core/colors";
 import { Link } from "@reach/router";
+import Defrosting from "./Defrosting";
 
 const ItemMuiTbl = (props) => {
   const [allItems, setAllItems] = useState(null);
@@ -84,11 +85,7 @@ const ItemMuiTbl = (props) => {
 
   if (allItems === null) {
     return (
-      <p className="mt-5">
-        {" "}
-        Defrosting {<Icon>ac_unit</Icon>} {<Icon>ac_unit</Icon>}{" "}
-        {<Icon>ac_unit</Icon>} ...
-      </p>
+      <Defrosting />
     );
   }
 

@@ -17,12 +17,13 @@ import HeaderDate from "./HeaderDate";
 import { navigate } from "@reach/router";
 // import { Link as RouterLink } from "@reach/router";
 import { Link } from "@reach/router";
+import Defrosting from "./Defrosting";
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: "70%",
+    maxWidth: "85%",
     margin: "auto",
-    maxHeight: 250,
+    maxHeight: 350,
   },
 });
 
@@ -45,11 +46,7 @@ const ItemList = (props) => {
 
   if (allItems === null) {
     return (
-      <p className="mt-5">
-        {" "}
-        Defrosting {<Icon>ac_unit</Icon>} {<Icon>ac_unit</Icon>}{" "}
-        {<Icon>ac_unit</Icon>} ...
-      </p>
+      <Defrosting />
     );
   }
 
