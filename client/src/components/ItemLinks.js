@@ -9,10 +9,6 @@ const ItemLinks = () => {
         <Link component={RouterLink} to="/main">
           Main/New
         </Link>{" "}
-        {/* |{" "}
-        <Link component={RouterLink} to="/freezer/new">
-          New Item
-        </Link>{" "} */}
         |{" "}
         <Link component={RouterLink} to="/freezer">
           List

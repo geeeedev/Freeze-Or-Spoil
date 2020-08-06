@@ -2,13 +2,33 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Icon } from "@material-ui/core";
+import {
+  Typography,
+  Paper,
+  Icon,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@material-ui/core";
 import HeaderDate from "./HeaderDate";
 import { navigate } from "@reach/router";
 // import { Link as RouterLink } from "@reach/router";
 import { Link } from "@reach/router";
 
+const useStyles = makeStyles({
+  table: {
+    maxWidth: "70%",
+    margin: "auto",
+    maxHeight: 250,
+  },
+});
+
 const ItemList = (props) => {
+  const muiClass = useStyles();
+
   const [allItems, setAllItems] = useState(null);
 
   useEffect(() => {
@@ -37,49 +57,64 @@ const ItemList = (props) => {
     <>
       <HeaderDate />
       <div>
-        <table className="table table-dark ">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Category</th>
-              <th scope="col">What</th>
-              <th scope="col">Qty</th>
-              <th scope="col">In Date</th>
-              <th scope="col">Out Date</th>
-              <th scope="col">Comment</th>
-              <th scope="col">Created At</th>
-              <th scope="col">#</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allItems.map((item, idx) => {
-              return (
-                <tr key={item._id}>
-                  <th scope="row">{idx + 1}</th>
-                  <td>{item.category}</td>
-                  <td><Link to={`/freezer/${item._id}/edit`}>{item.item}</Link></td>
-                  {/* <td>{item.item}</td> */}
-                  <td>{item.qty}</td>
-                  <td>
-                    {moment(item.in_date).format("l") === "Invalid date"
-                      ? ""
-                      : moment(item.in_date).format("l")}
-                  </td>
-                  <td>
-                    {moment(item.out_date).format("l") === "Invalid date"
-                      ? ""
-                      : moment(item.out_date).format("l")}
-                  </td>
-                  <td>{item.comment}</td>
-                  <td>{moment(item.createdAt).format("l")}</td>
-                  <td>{item._id}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <TableContainer className={muiClass.table}>
+          <Table stickyHeader size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center" >#</TableCell>
+                <TableCell align="center">Category</TableCell>
+                <TableCell align="center">What</TableCell>
+                <TableCell align="center">Qty</TableCell>
+                <TableCell align="center">In Date</TableCell>
+                <TableCell align="center">Out Date</TableCell>
+                <TableCell align="center">Comment</TableCell>
+                <TableCell align="center">Created At</TableCell>
+                <TableCell align="center">#</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {allItems.map((item, idx) => {
+                return (
+                  <TableRow key={item._id} hover>
+                    <TableCell align="center" component="th" scope="row">
+                      {idx + 1}
+                    </TableCell>
+                    <TableCell align="center">{item.category}</TableCell>
+                    <TableCell align="center">
+                      <Link to={`/freezer/${item._id}/edit`}>{item.item}</Link>
+                    </TableCell>
+                    {/* <TableCell>{item.item}</TableCell> */}
+                    <TableCell align="center">{item.qty}</TableCell>
+                    <TableCell align="center">
+                      {moment(item.in_date).format("l") === "Invalid date"
+                        ? ""
+                        : moment(item.in_date).format("l")}
+                    </TableCell>
+                    <TableCell align="center">
+                      {moment(item.out_date).format("l") === "Invalid date"
+                        ? ""
+                        : moment(item.out_date).format("l")}
+                    </TableCell>
+                    <TableCell align="center">{item.comment}</TableCell>
+                    <TableCell align="center">
+                      {moment(item.createdAt).format("l")}
+                    </TableCell>
+                    <TableCell align="center">{item._id}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </>
   );
 };
 export default ItemList;
+
+
+/**
+ * Nxt on THIS list: 
+ *    Delete
+ *    Sort
+ */

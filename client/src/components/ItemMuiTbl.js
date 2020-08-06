@@ -6,6 +6,7 @@ import { Typography, Icon, Paper } from "@material-ui/core";
 import HeaderDate from "./HeaderDate";
 import MaterialTable from "material-table";
 import { green, purple, red, blue, blueGrey } from "@material-ui/core/colors";
+import { Link } from "@reach/router";
 
 const ItemMuiTbl = (props) => {
   const [allItems, setAllItems] = useState(null);
@@ -164,7 +165,9 @@ const ItemMuiTbl = (props) => {
         // ]}
       />
       </div>
-      <div style={{ padding: "55px"}}>
+
+      {/* No Longer Needed: old bootstrap table for data checking  */}
+      {/* <div style={{ padding: "55px"}}>
         <table className="table table-dark ">
           <thead>
             <tr>
@@ -185,7 +188,7 @@ const ItemMuiTbl = (props) => {
                 <tr key={item._id}>
                   <th scope="row">{idx + 1}</th>
                   <td>{item.category}</td>
-                  <td>{item.item}</td>
+                  <td><Link to={`/freezer/${item._id}/edit`}>{item.item}</Link></td>
                   <td>{item.qty}</td>
                   <td>
                     {moment(item.in_date).format("l") === "Invalid date"
@@ -205,7 +208,7 @@ const ItemMuiTbl = (props) => {
             })}
           </tbody>
         </table>
-      </div>
+      </div> */}
     </>
   );
 };

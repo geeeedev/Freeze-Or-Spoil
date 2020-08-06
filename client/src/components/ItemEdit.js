@@ -46,7 +46,7 @@ const ItemEdit = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.id]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -71,6 +71,10 @@ const ItemEdit = (props) => {
         setErrors(err.response.data.errors);
       });
   };
+
+  const handleCancel = () => {
+    navigate(`/freezer`);
+  }
 
   // if (editItem === null) {
   //   return (
@@ -250,8 +254,12 @@ const ItemEdit = (props) => {
           />
 
           <br />
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="primary"  style={{marginBottom: "10px"}}>
             Update Item
+          </Button>
+          <Button type="reset" variant="contained" color="primary" onClick={handleCancel} >
+          {/* <Button type="reset" variant="contained" color="primary"  > */}
+            Cancel
           </Button>
         </MuiPickersUtilsProvider>
       </form>
