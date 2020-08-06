@@ -29,6 +29,15 @@ module.exports = {
         res.status(400).json(err);
       });
   },
+  getCategories(req, res) {
+    Freezer.find({},{"category":1,_id:0})
+      .then((AllCategories) => {
+        res.json(AllCategories);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  },
   update(req, res) {
     Freezer.findByIdAndUpdate(req.params.id, req.body, {
       runValidators: true,
