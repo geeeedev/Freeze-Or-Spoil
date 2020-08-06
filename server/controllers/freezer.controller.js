@@ -30,7 +30,8 @@ module.exports = {
       });
   },
   getCategories(req, res) {
-    Freezer.find({},{"category":1,_id:0})
+    // Freezer.find({},{cateogry:1,_id:0})    //need distinct and sorted
+    Freezer.distinct("category")          
       .then((AllCategories) => {
         res.json(AllCategories);
       })

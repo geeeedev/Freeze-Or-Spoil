@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
 import "../styles.css";
+import { Autocomplete } from "@material-ui/lab";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
@@ -25,8 +26,6 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 const ItemNew = (props) => {
   const [category, setCategory] = useState("");
   const [item, setItem] = useState("");
@@ -35,6 +34,19 @@ const ItemNew = (props) => {
   const [outDate, setOutDate] = useState(null);
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState({});
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/categories")
+      .then((res) => {
+        console.log(res);
+        setCategories(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +63,6 @@ const ItemNew = (props) => {
       comment,
     };
 
-
     //api to create item obj in db
     axios
       .post("http://localhost:8000/api/freezer/new", newItem)
@@ -66,8 +77,13 @@ const ItemNew = (props) => {
       });
   };
 
-  
+  const handleDropdown = (e, newVal) => {
+      console.log(newVal);
+      setCategory(newVal);
+  }
+
   const muiStyles = useStyles();
+  // use {categories.map((category)={category.category ...in option and value})}
 
   return (
     <>
@@ -76,21 +92,50 @@ const ItemNew = (props) => {
         <MuiPickersUtilsProvider utils={MomentUtils}>
           <FormControl error={muiStyles.errorText}>
             {errors.category ? (
-              <TextField
-                error
-                type="text"
-                label="Category"
-                onChange={(e) => {
-                  setCategory(e.target.value);
+              <Autocomplete
+                options={categories}
+                // getOptionLabel={(option) => option.category}   //needed when categories is an array of OBJECTS - looks for value of key category
+                freeSolo
+                onChange={(e, newVal) => {
+                  setCategory(newVal);
                 }}
+                onInputChange={(e, newInputValue) => {
+                  setCategory(newInputValue);
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    error
+                    type="text"
+                    label="Category"
+                    // onChange={(e) => {
+                    //   setCategory(e.target.value);
+                    // }}
+                  />
+                )}
               />
             ) : (
-              <TextField
-                type="text"
-                label="Category"
-                onChange={(e) => {
-                  setCategory(e.target.value);
+              <Autocomplete
+                options={categories}
+                // getOptionLabel={(option) => option.category}   //needed when categories is an array of OBJECTS - looks for value of key category
+                getOptionLabel={(option) => option}
+                freeSolo
+                onChange={(e, newVal) => {
+                  setCategory(newVal);
                 }}
+                onInputChange={(e, newInputValue) => {
+                  setCategory(newInputValue);
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    type="text"
+                    label="Category"
+                    // onChange={(e) => {
+                    //   setCategory(e.target.value);
+                    // }}
+                  />
+                )}
               />
             )}
             <div>
@@ -156,9 +201,7 @@ const ItemNew = (props) => {
             )}
             <div>
               {errors.qty ? (
-                <FormHelperText>
-                  {errors.qty.properties.message}
-                </FormHelperText>
+                <FormHelperText>{errors.qty.properties.message}</FormHelperText>
               ) : (
                 ""
               )}
