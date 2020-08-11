@@ -80,7 +80,7 @@ const ItemMuiTbl = (props) => {
     { title: "Out Date", field: "out_date", type: "date" },
     { title: "Comment", field: "comment" },
     { title: "Created At", field: "createdAt", type: "date" },
-    { title: "#", field: "_id", export: false },
+    // { title: "#", field: "_id", export: false },
   ];
 
   if (allItems === null) {

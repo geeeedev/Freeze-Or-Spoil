@@ -66,7 +66,7 @@ const ItemList = (props) => {
                 <TableCell align="center">Out Date</TableCell>
                 <TableCell align="center">Comment</TableCell>
                 <TableCell align="center">Created At</TableCell>
-                <TableCell align="center">#</TableCell>
+                {/* <TableCell align="center">#</TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -96,7 +96,7 @@ const ItemList = (props) => {
                     <TableCell align="center">
                       {moment(item.createdAt).format("l")}
                     </TableCell>
-                    <TableCell align="center">{item._id}</TableCell>
+                    {/* <TableCell align="center">{item._id}</TableCell> */}
                   </TableRow>
                 );
               })}
