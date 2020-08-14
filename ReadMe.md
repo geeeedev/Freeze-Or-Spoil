@@ -95,4 +95,4 @@ Here are screenshots for this app:
 ![](Screenshots/Freeze-or-Spoil_58.png)
 
 [Exported PDF Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
-<!-- [Exported_PDF_Version](./Screenshots/FreezerStorageUpdateWithMaterialTable.pdf) also works -->
+<!-- [Exported_PDF_Version](./Screenshots/FreezerStorageUpdateWithMaterialTable.pdf) this relative link also works -->
