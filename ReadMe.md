@@ -5,9 +5,6 @@
 > Additional codes commented out are intentionally left in for my learning purposes
 
 
-[Exported_PDF_Version](./Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
-
-
 Technology used:
 
 - React.js
@@ -99,4 +96,5 @@ Here are screenshots for this app:
 ![](Screenshots/Freeze-or-Spoil_59.png)
 ![](Screenshots/Freeze-or-Spoil_60.png)
 
-
+[Exported PDF Version](./Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
+[Exported_PDF_Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
