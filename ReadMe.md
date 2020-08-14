@@ -93,8 +93,8 @@ Here are screenshots for this app:
 ![](Screenshots/Freeze-or-Spoil_56.png)
 ![](Screenshots/Freeze-or-Spoil_57.png)
 ![](Screenshots/Freeze-or-Spoil_58.png)
-![](Screenshots/Freeze-or-Spoil_59.png)
-![](Screenshots/Freeze-or-Spoil_60.png)
+<!-- ![](Screenshots/Freeze-or-Spoil_59.png) -->
+<!-- ![](Screenshots/Freeze-or-Spoil_60.png) -->
 
 [Exported PDF Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
 <!-- [Exported_PDF_Version](./Screenshots/FreezerStorageUpdateWithMaterialTable.pdf) also works -->
