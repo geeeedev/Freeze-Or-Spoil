@@ -2,6 +2,12 @@
 
 > I built this app in two versions of the CRUD capability to practice/play around and compare features in Material Table vs. self-built.
 
+> Additional codes commented out are intentionally left in for my learning purposes
+
+
+![Exported_PDF_Version](./Screenshots/FreezerStorageUpdateWithMaterialTable .pdf)
+
+
 Technology used:
 
 - React.js
@@ -28,7 +34,7 @@ Future Improvements:
 1. Material Table with Color Theme
    - tried initially the build-in method but it didn't work
    - want to try again with my own makeStyles hook
-1. Add Twilio alert messaging for item purchase reminder
+1. Add Twilio alert messaging for item re-purchase reminder
 
 Here are screenshots for this app:
 
