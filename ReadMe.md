@@ -5,7 +5,7 @@
 > Additional codes commented out are intentionally left in for my learning purposes
 
 
-[Exported_PDF_Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
+![Exported_PDF_Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
 
 
 Technology used:
