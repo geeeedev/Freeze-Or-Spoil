@@ -93,12 +93,9 @@ Here are screenshots for this app:
 ![](Screenshots/Freeze-or-Spoil_56.png)
 ![](Screenshots/Freeze-or-Spoil_57.png)
 ![](Screenshots/Freeze-or-Spoil_58.png)
-[Exported PDF Version](Screenshots/FreezerStorageUpdateWithMaterialTable.pdf)
 [Exported PDF Version](Screenshots/Freeze-or-Spoil_59_FreezerStorageUpdateWithMaterialTable.pdf)
 <!-- [Exported_PDF_Version](./Screenshots/Freeze-or-Spoil_59_FreezerStorageUpdateWithMaterialTable.pdf) this relative link also works -->
 ![](Screenshots/Freeze-or-Spoil_60.png)
 ![](Screenshots/Freeze-or-Spoil_61.png)
 ![](Screenshots/Freeze-or-Spoil_62.png)
-![](Screenshots/xFreeze-or-Spoil_62-BAD.png)
 ![](Screenshots/Freeze-or-Spoil_63.png)
-![](Screenshots/xFreeze-or-Spoil_63-BAD.png)
