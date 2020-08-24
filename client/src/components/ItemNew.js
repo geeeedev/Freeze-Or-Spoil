@@ -96,10 +96,10 @@ const ItemNew = (props) => {
                 options={categories}
                 // getOptionLabel={(option) => option.category}   //needed when categories is an array of OBJECTS - looks for value of key category
                 freeSolo
-                onChange={(e, newVal) => {
+                onChange={(e, newVal) => {                  //thru dropdown selection
                   setCategory(newVal);
                 }}
-                onInputChange={(e, newInputValue) => {
+                onInputChange={(e, newInputValue) => {      //thru type-in input
                   setCategory(newInputValue);
                 }}
                 renderInput={(params) => (
@@ -108,7 +108,7 @@ const ItemNew = (props) => {
                     error
                     type="text"
                     label="Category"
-                    // onChange={(e) => {
+                    // onChange={(e) => {                   //using that of AutoComplete X2 instead of this of TextField
                     //   setCategory(e.target.value);
                     // }}
                   />
