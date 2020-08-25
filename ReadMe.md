@@ -57,9 +57,9 @@ Here are screenshots for this app:
 ![](Screenshots/Freeze-or-Spoil_20.png)
 ![](Screenshots/Freeze-or-Spoil_21.png)
 ![](Screenshots/Freeze-or-Spoil_22.png)
-![](Screenshots/Freeze-or-Spoil_23-62.png)
-![](Screenshots/Freeze-or-Spoil_24-63.png)  ////////////////
-![](Screenshots/Freeze-or-Spoil_25-63.png)  ////////////////
+![](Screenshots/Freeze-or-Spoil_23.png)
+![](Screenshots/Freeze-or-Spoil_24.png)  
+![](Screenshots/Freeze-or-Spoil_25.png)  
 ![](Screenshots/Freeze-or-Spoil_26.png)
 ![](Screenshots/Freeze-or-Spoil_27.png)
 ![](Screenshots/Freeze-or-Spoil_28.png)
