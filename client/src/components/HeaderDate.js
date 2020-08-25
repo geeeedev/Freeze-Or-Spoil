@@ -15,7 +15,8 @@ const HeaderDate = (props) => {
         <div style={{padding: "15px"}}>
         <Typography variant="h4" color="primary" paragraph >
           {/* What's In the Freezer @ {currDate} */}
-          What's In the Freezer @ {moment().format("l")}
+          {/* What's In the Freezer @ {moment().format("l")} */}
+          What's In the Freezer @ 8/11/2020
         </Typography>
         <ItemLinks />
         </div>
