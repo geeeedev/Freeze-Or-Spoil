@@ -3,9 +3,9 @@ import axios from "axios";
 import moment from "moment";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Typography,
-  Paper,
-  Icon,
+  // Typography,
+  // Paper,
+  // Icon,
   TableContainer,
   Table,
   TableHead,
@@ -14,11 +14,12 @@ import {
   TableBody,
 } from "@material-ui/core";
 import HeaderDate from "./HeaderDate";
-import { navigate } from "@reach/router";
+// import { navigate } from "@reach/router";
 // import { Link as RouterLink } from "@reach/router";
 import { Link } from "@reach/router";
 import Defrosting from "./Defrosting";
 
+const api_url = "http://localhost:8000/api";
 const useStyles = makeStyles({
   table: {
     maxWidth: "85%",
@@ -34,7 +35,8 @@ const ItemList = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/freezer")
+      // .get("http://localhost:8000/api/freezer")
+      .get(`${api_url}/freezer`)
       .then((res) => {
         console.log(res);
         setAllItems(res.data);
