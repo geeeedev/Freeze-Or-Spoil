@@ -1,4 +1,4 @@
-//establish routing with appropriate controller methods
+//establish routing with appropriate API controller methods
 const freezerController = require("../controllers/freezer.controller");
 
 module.exports = (app) => {
