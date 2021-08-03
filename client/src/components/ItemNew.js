@@ -5,8 +5,8 @@ import "../styles.css";
 import { Autocomplete } from "@material-ui/lab";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Typography,
-  Paper,
+  // Typography,
+  // Paper,
   TextField,
   Button,
   FormHelperText,
@@ -19,6 +19,8 @@ import {
 import MomentUtils from "@date-io/moment";
 import HeaderDate from "./HeaderDate";
 import { red } from "@material-ui/core/colors";
+
+const api_url = "http://localhost:8000/api";
 
 const useStyles = makeStyles({
   errorText: {
@@ -38,7 +40,8 @@ const ItemNew = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/categories")
+    // .get("http://localhost:8000/api/categories")
+      .get(`${api_url}/categories`)
       .then((res) => {
         console.log(res);
         setCategories(res.data);
@@ -65,7 +68,8 @@ const ItemNew = (props) => {
 
     //api to create item obj in db
     axios
-      .post("http://localhost:8000/api/freezer/new", newItem)
+      // .post("http://localhost:8000/api/freezer/new", newItem)
+      .post(`${api_url}/freezer/new`, newItem)
       .then((res) => {
         console.log(`NewItem Response: `, res);
         navigate("/freezer");
@@ -77,10 +81,10 @@ const ItemNew = (props) => {
       });
   };
 
-  const handleDropdown = (e, newVal) => {
-      console.log(newVal);
-      setCategory(newVal);
-  }
+  // const handleDropdown = (e, newVal) => {
+  //     console.log(newVal);
+  //     setCategory(newVal);
+  // }
 
   const muiStyles = useStyles();
   // use {categories.map((category)={category.category ...in option and value})}
