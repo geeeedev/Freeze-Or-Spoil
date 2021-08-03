@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, Router, Link, navigate } from "@reach/router";
+import { 
+  // Redirect, 
+  // Router, 
+  // Link, 
+  navigate 
+} from "@reach/router";
 import axios from "axios";
 import "../styles.css";
 import {
-  Typography,
-  Paper,
+  // Typography,
+  // Paper,
   TextField,
   Button,
-  Icon,
+  // Icon,
   FormControl,
   FormHelperText,
 } from "@material-ui/core";
@@ -18,6 +23,8 @@ import {
 import MomentUtils from "@date-io/moment";
 import HeaderDate from "./HeaderDate";
 import { red } from "@material-ui/core/colors";
+
+const api_url = "http://localhost:8000/api";
 
 const ItemEdit = (props) => {
   // const [editItem, setEditItem] = useState(null);
@@ -32,7 +39,8 @@ const ItemEdit = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/freezer/${props.id}`)
+      // .get(`http://localhost:8000/api/freezer/${props.id}`)
+      .get(`${api_url}/freezer/${props.id}`)
       .then((res) => {
         console.log(res);
         // setEditItem(res.data);
@@ -60,7 +68,7 @@ const ItemEdit = (props) => {
     };
 
     axios
-      .put(`http://localhost:8000/api/freezer/${props.id}`, updatedItem)
+      .put(`${api_url}/freezer/${props.id}`, updatedItem)
       .then((res) => {
         console.log(`DB Update Success: `, res);
         navigate("/freezer");
