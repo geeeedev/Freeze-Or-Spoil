@@ -1,6 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core/styles";
+import { 
+  Typography, 
+  // Paper 
+} from "@material-ui/core";
 import moment from "moment";
 
 import ItemLinks from "./ItemLinks";
