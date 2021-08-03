@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { Redirect, Router, Link, navigate } from "@reach/router";
+import { 
+  Redirect, 
+  Router, 
+  // Link, 
+  // navigate 
+} from "@reach/router";
 import "./App.css";
 // import { ItemNew } from "./components/ItemNew" //use with export const
 import ItemNew from "./components/ItemNew";       //use with export default
-import ItemEdit from "./components/ItemEdit";  //edit
-import ItemList from "./components/ItemList";  //List All + Delete
+import ItemEdit from "./components/ItemEdit";     //edit
+import ItemList from "./components/ItemList";     //List All + Delete
 import ItemMuiTbl from "./components/ItemMuiTbl";
 import Main from "./components/Main";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { MuiThemeProvider } from "material-table";
+// import { MuiThemeProvider } from "material-table";
 import { Paper } from "@material-ui/core";
 
 function App() {
