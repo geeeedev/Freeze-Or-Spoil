@@ -1,8 +1,12 @@
 import React from "react";
-import HeaderDate from "./HeaderDate";
+// import HeaderDate from "./HeaderDate";
 import ItemNew from "./ItemNew";
-import { Switch } from "@material-ui/core";
-import { Paper, IconButton, Icon } from "@material-ui/core";
+// import { Switch } from "@material-ui/core";
+import { 
+  // Paper, 
+  IconButton, 
+  Icon 
+} from "@material-ui/core";
 
 const Main = (props) => {
   return (
