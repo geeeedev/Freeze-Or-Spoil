@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Icon, Paper } from "@material-ui/core";
+// import moment from "moment";
+// import { makeStyles } from "@material-ui/core/styles";
+// import { Typography, Icon, Paper } from "@material-ui/core";
 import HeaderDate from "./HeaderDate";
 import MaterialTable from "material-table";
-import { green, purple, red, blue, blueGrey } from "@material-ui/core/colors";
-import { Link } from "@reach/router";
+// import { green, purple, red, blue, blueGrey } from "@material-ui/core/colors";
+// import { Link } from "@reach/router";
 import Defrosting from "./Defrosting";
 
+const api_url = "http://localhost:8000/api";
 const ItemMuiTbl = (props) => {
   const [allItems, setAllItems] = useState(null);
 
   //Initial API Data Read/Load
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/freezer")
+      // .get("http://localhost:8000/api/freezer")
+      .get(`${api_url}/freezer`)
       .then((res) => {
         console.log(res);
         setAllItems(res.data);
@@ -28,7 +30,8 @@ const ItemMuiTbl = (props) => {
   //API Data Add
   const handleDBadd = (newData) => {
     axios
-      .post(`http://localhost:8000/api/freezer/new`, newData)
+      // .post(`http://localhost:8000/api/freezer/new`, newData)
+      .post(`${api_url}/freezer/new`, newData)
       .then((res) => {
         console.log(`MTbl DB Add Success: `, res);
         // navigate("/freezer");
@@ -43,7 +46,8 @@ const ItemMuiTbl = (props) => {
   //API Data Update
   const handleDBupdate = (id, newData) => {
     axios
-      .put(`http://localhost:8000/api/freezer/${id}`, newData)
+      // .put(`http://localhost:8000/api/freezer/${id}`, newData)
+      .put(`${api_url}/freezer/${id}`, newData)
       .then((res) => {
         console.log(`MTbl DB Update Success: `, res);
       })
@@ -57,7 +61,8 @@ const ItemMuiTbl = (props) => {
   //API Data Delete
   const handleDBdelete = (id) => {
     axios
-      .delete(`http://localhost:8000/api/freezer/${id}`)
+      // .delete(`http://localhost:8000/api/freezer/${id}`)
+      .delete(`${api_url}/freezer/${id}`)
       .then((res) => {
         console.log(`MTbl DB Delete Success: `, res);
         // const listWithoutDeleted = allItems.filter((item, idx) => {
