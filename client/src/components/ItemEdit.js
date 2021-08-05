@@ -68,6 +68,7 @@ const ItemEdit = (props) => {
     };
 
     axios
+      // .put(`http://localhost:8000/api/freezer/${props.id}`, updatedItem)
       .put(`${api_url}/freezer/${props.id}`, updatedItem)
       .then((res) => {
         console.log(`DB Update Success: `, res);
